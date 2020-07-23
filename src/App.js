@@ -49,25 +49,29 @@ function App() {
     setPersonState({ persons: persons });
   };
 
+  let personView = null;
+  if(showHideState.buttonState) {
+    personView =  (
+      <div>
+        {personState.persons.map((person, index) => {
+          return (
+            <Person
+              key={person.id}
+              change={(event) => nameChangeHandler(event, person.id)}
+              name={person.name}
+              age={person.age}
+              deleteButton={() => deleteButtonHandler(index)}
+            />
+          );
+        })}
+      </div>
+    ) 
+  } else personView = null;
+
   return (
     <div className='App'>
       <button onClick={showHideButtonHandler}>Show/Hide Persons</button>
-
-      {showHideState.buttonState == true ? (
-        <div>
-          {personState.persons.map((person, index) => {
-            return (
-              <Person
-                key={person.id}
-                change={(event) => nameChangeHandler(event, person.id)}
-                name={person.name}
-                age={person.age}
-                deleteButton={() => deleteButtonHandler(index)}
-              />
-            );
-          })}
-        </div>
-      ) : null}
+      {personView}
     </div>
   );
 }
