@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Radium, { StyleRoot } from 'radium';
+// Radium is a direct import,
+// StyleRoot is a named import
+// Styleroot wrapping is required ofr media query to work
 
 function App() {
   // Creating a statehook
@@ -55,7 +59,13 @@ function App() {
     font: 'inherit',
     border: '1px solid blue',
     padding: '8px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    // Requies radium package
+    // Must be inside single quotes as they are not valid css properties in vanilla react
+    ':hover': {
+      backgroundColor: 'salmon',
+      color: 'black',
+    }
   }
 
   let personView = null;
@@ -83,12 +93,15 @@ function App() {
     classes = ['red', 'bold'].join(' ');
 
   return (
-    <div className='App'>
-      <p className={classes}>Delete Elements tp chnge Css styling</p>
-      <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
-      {personView}
-    </div>
+    <StyleRoot>
+      <div className='App'>
+        <p className={classes}>Delete Elements tp chnge Css styling</p>
+        <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
+        {personView}
+      </div>
+    </StyleRoot>
+    
   );
 }
 
-export default App;
+export default Radium(App);

@@ -1,11 +1,19 @@
 import React from 'react';
 import './Person.css';
+import Radium from 'radium';
 // ES6 style
 // Props is the tecnical ketword for the attribute of an element
 // Here we can hoever give anyname
 const person = (props) => {
+
+  const style = {
+    '@media (min-width: 500px)': {
+      width: '450px'
+    }
+  }
+
   return (
-    <div className='Person'>
+    <div className='Person' style={style}>
       <p> I'm a Person!</p>
       <p>Name provided as attribute: {props.name}, age: {props.age} </p>
       <p>Age {Math.floor(Math.random() * 100)}</p>
@@ -17,6 +25,6 @@ const person = (props) => {
   );
 };
 
-export default person;
+export default Radium(person);
 // Older method
 // const person = function (){}
