@@ -89,6 +89,7 @@ function App() {
     }
   }
 
+  let btnClass = [classes.Button];
   let personView = null;
   if(showHideState.buttonState) {
     personView =  (
@@ -106,12 +107,14 @@ function App() {
         })}
       </div>
     )
-    style.backgroundColor = 'red'
+    btnClass.push(classes.Red)
   } else personView = null;
 
   let assignedClasses = [];
   if(personState.persons.length <=2 )
     assignedClasses = ['red', 'bold'].join(' ');
+
+
 
   return (
 
@@ -136,7 +139,7 @@ function App() {
     // Default
     <div className={classes.App}>
       {/* <p className={assignedClasses}>Delete Elements tp chnge Css styling</p> */}
-      <button className={classes.Button} onClick={showHideButtonHandler}>Show/Hide Persons</button>
+      <button className={btnClass.join(' ')} onClick={showHideButtonHandler}>Show/Hide Persons</button>
       {personView}
     </div>
     
