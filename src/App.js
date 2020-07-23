@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import classes from  './App.module.css';
 import Person from './Person/Person';
 
 // --------------------------------------------
@@ -109,16 +109,16 @@ function App() {
     style.backgroundColor = 'red'
   } else personView = null;
 
-  let classes = [];
+  let assignedClasses = [];
   if(personState.persons.length <=2 )
-    classes = ['red', 'bold'].join(' ');
+    assignedClasses = ['red', 'bold'].join(' ');
 
   return (
 
     // Radium --------------------------
     // <StyleRoot>
       // <div className='App'>
-      //   <p className={classes}>Delete Elements tp chnge Css styling</p>
+      //   <p className={assignedClasses}>Delete Elements tp chnge Css styling</p>
       //   <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
       //   {personView}
       // </div>
@@ -126,7 +126,7 @@ function App() {
     
     // Styled-COmponent-----------------------
     // <div className='App'>
-    //   <p className={classes}>Delete Elements tp chnge Css styling</p>
+    //   <p className={assignedClasses}>Delete Elements tp chnge Css styling</p>
     //   {/* <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button> */}
     //   {/* Button color can be changed dynamically using ${} syntax, here alt can be substituted with any other nae */}
     //   <StyledButton alt={showHideState.buttonState} onClick={showHideButtonHandler}>Show/Hide Persons</StyledButton>
@@ -134,9 +134,9 @@ function App() {
     // </div>
 
     // Default
-    <div className='App'>
-      <p className={classes}>Delete Elements tp chnge Css styling</p>
-      <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
+    <div className={classes.App}>
+      {/* <p className={assignedClasses}>Delete Elements tp chnge Css styling</p> */}
+      <button className={classes.Button} onClick={showHideButtonHandler}>Show/Hide Persons</button>
       {personView}
     </div>
     
