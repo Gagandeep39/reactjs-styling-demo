@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import styled from 'styled-components';
+
 // import Radium, { StyleRoot } from 'radium';
 // Radium is a direct import,
 // StyleRoot is a named import
 // Styleroot wrapping is required ofr media query to work
+
+const StyledButton = styled.button`
+    background-color: ${props => props.alt ? 'red' : 'green'};
+    color: white;
+    font: inherit;
+    border: 1px solid blue;
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: salmon;
+      color: black;
+    }
+`;
+
 
 function App() {
   // Creating a statehook
@@ -103,7 +120,9 @@ function App() {
     
     <div className='App'>
       <p className={classes}>Delete Elements tp chnge Css styling</p>
-      <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
+      {/* <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button> */}
+      {/* Button color can be changed dynamically using ${} syntax, here alt can be substituted with any other nae */}
+      <StyledButton alt={showHideState.buttonState} onClick={showHideButtonHandler}>Show/Hide Persons</StyledButton>
       {personView}
   </div>
     
