@@ -49,6 +49,15 @@ function App() {
     setPersonState({ persons: persons });
   };
 
+  const style = {
+    backgroundColor: 'green',
+    color: 'white',
+    font: 'inherit',
+    border: '1px solid blue',
+    padding: '8px',
+    cursor: 'pointer'
+  }
+
   let personView = null;
   if(showHideState.buttonState) {
     personView =  (
@@ -65,12 +74,13 @@ function App() {
           );
         })}
       </div>
-    ) 
+    )
+    style.backgroundColor = 'red'
   } else personView = null;
 
   return (
     <div className='App'>
-      <button onClick={showHideButtonHandler}>Show/Hide Persons</button>
+      <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
       {personView}
     </div>
   );
