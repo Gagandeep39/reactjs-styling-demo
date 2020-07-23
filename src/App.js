@@ -78,8 +78,13 @@ function App() {
     style.backgroundColor = 'red'
   } else personView = null;
 
+  let classes = [];
+  if(personState.persons.length <=2 )
+    classes = ['red', 'bold'].join(' ');
+
   return (
     <div className='App'>
+      <p className={classes}>Delete Elements tp chnge Css styling</p>
       <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
       {personView}
     </div>
