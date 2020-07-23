@@ -1,6 +1,6 @@
 import React from 'react';
 import './Person.css';
-import Radium from 'radium';
+// import Radium from 'radium';
 // ES6 style
 // Props is the tecnical ketword for the attribute of an element
 // Here we can hoever give anyname
@@ -25,6 +25,7 @@ const person = (props) => {
   );
 };
 
-export default Radium(person);
+// export default Radium(person);
+export default person;
 // Older method
 // const person = function (){}

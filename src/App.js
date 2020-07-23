@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium, { StyleRoot } from 'radium';
+// import Radium, { StyleRoot } from 'radium';
 // Radium is a direct import,
 // StyleRoot is a named import
 // Styleroot wrapping is required ofr media query to work
@@ -93,15 +93,22 @@ function App() {
     classes = ['red', 'bold'].join(' ');
 
   return (
-    <StyleRoot>
-      <div className='App'>
-        <p className={classes}>Delete Elements tp chnge Css styling</p>
-        <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
-        {personView}
-      </div>
-    </StyleRoot>
+    // <StyleRoot>
+      // <div className='App'>
+      //   <p className={classes}>Delete Elements tp chnge Css styling</p>
+      //   <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
+      //   {personView}
+      // </div>
+    // </StyleRoot>
+    
+    <div className='App'>
+      <p className={classes}>Delete Elements tp chnge Css styling</p>
+      <button style={style} onClick={showHideButtonHandler}>Show/Hide Persons</button>
+      {personView}
+  </div>
     
   );
 }
 
-export default Radium(App);
+// export default Radium(App);
+export default App;
