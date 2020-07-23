@@ -1,5 +1,5 @@
 import React from 'react';
-import './Person.css';
+import classes from './Person.module.css';
 import styled from 'styled-components';
 // import Radium from 'radium';
 // ES6 style
@@ -39,7 +39,19 @@ const person = (props) => {
 
 
     // Style Div
-    <StyledDiv>
+    // <StyledDiv>
+    //   <p> I'm a Person!</p>
+    //   <p>Name provided as attribute: {props.name}, age: {props.age} </p>
+    //   <p>Age {Math.floor(Math.random() * 100)}</p>
+    //   <p> {props.children} </p>
+    //   <button onClick={props.deleteButton}>Delete</button>
+    //   <br />
+    //   <input type='text' onChange={props.change} />
+    // </StyledDiv>
+
+
+    // Css Module
+    <div className={classes.Person}>
       <p> I'm a Person!</p>
       <p>Name provided as attribute: {props.name}, age: {props.age} </p>
       <p>Age {Math.floor(Math.random() * 100)}</p>
@@ -47,7 +59,7 @@ const person = (props) => {
       <button onClick={props.deleteButton}>Delete</button>
       <br />
       <input type='text' onChange={props.change} />
-    </StyledDiv>
+    </div>
   );
 };
 
